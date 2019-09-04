@@ -55,6 +55,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
 	console.log("SERVER IS RUNNING!");
 });
