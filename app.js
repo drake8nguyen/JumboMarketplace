@@ -5,14 +5,14 @@ var express     = require("express"),
 	methodOverride = require("method-override"), 
 	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
-	Campground = require("./models/campground"),
+	Item = require("./models/item"),
 	Comment = require("./models/comment"),
 	User = require("./models/user"),
 	flash = require("connect-flash"),
 	seedDB = require("./seeds");
 
 var commentRoutes = require("./routes/comments"),
-	campgroundRoutes = require("./routes/campgrounds"),
+	itemRoutes = require("./routes/items"),
 	indexRoutes = require("./routes/index");
 
 //seedDB();
@@ -52,8 +52,8 @@ app.use(function(req, res, next) {
 });
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/items", itemRoutes);
+app.use("/items/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT || 3001, () => {
 	console.log("SERVER IS RUNNING!");
